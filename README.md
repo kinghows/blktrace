@@ -15,4 +15,10 @@ btt -i dm-6.bin -o dm-6
 
 btt -i dm-6.bin -l dm-6.d2c_latency
 
+btt -i dm-6.bin -l dm-6.d2c_data >dm6_d2c.txt
+
+./d2c.sh dm6_d2c.txt
+
 iowatcher -t dm-6.bin -o dm-6.svg
+
+./blkmon.sh /dev/dm-6
