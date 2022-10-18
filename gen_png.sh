@@ -16,11 +16,11 @@ if [ x"$device" = x"" ];then
   exit 1 
 fi
 
-if [ ! -e $device.blktrace.bin ]; then
-  blkparse -i $device -d $device.blktrace.bin -o $device\_$CTIME.txt > /dev/null
+if [ ! -e $device.bin ]; then
+  blkparse -i $device -d $device.bin > /dev/null
 fi
 
-btt -i $device.blktrace.bin -q $device.q2c_latency -l $device.d2c_latency -m seek_freq -s seek -B $device.offset > $device.btt.result
+btt -i $device.bin -q $device.q2c_latency -l $device.d2c_latency -m seek_freq -s seek -B $device.offset > $device.btt.result
 
 find . -name $device."blktrace.*" -exec rm -rf {} \;
 

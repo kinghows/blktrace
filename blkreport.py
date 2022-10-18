@@ -166,9 +166,9 @@ def main(argv=None):
         print("You must specify the device you try to analyze")
         exit(1)
 
-    target_files = glob.glob("./{}.blktrace.*".format(options.device))
+    target_files = glob.glob("./{}.bin".format(options.device))
     if len(target_files) == 0 :
-        print("I can not found blktrace raw file for {}".format(options.device))
+        print("Pleace run blkmon.sh to get  {}.bin".format(options.device))
         exit(2)
 
     return process_info(options.device)
