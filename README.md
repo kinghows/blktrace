@@ -26,17 +26,22 @@ yum install gnuplot -y
 https://github.com/jgm/pandoc/releases/download/2.19.2/pandoc-2.19.2-linux-amd64.tar.gz
 
 tar xvzf pandoc-2.19.2-linux-amd64.tar.gz --strip-components 1 -C /usr/local/
+
 pandoc -v
+
 ln -s /usr/local/bin/pandoc /usr/bin/pandoc
 
 For PDF output, you’ll need LaTeX.
+
 yum install texlive –y
 
 -------LaTeX Error: File `translator.sty' not found.
+
 https://ctan.org/search?phrase=translator
 
 unzip -d /usr/share/texlive/texmf-dist/tex/latex/ translator.zip
 
 -----------psutil
+
 pip install psutil
 
