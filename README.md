@@ -45,3 +45,60 @@ unzip -d /usr/share/texlive/texmf-dist/tex/latex/ translator.zip
 
 pip install psutil
 
+--------------
+
+python3 blkreport.py -d dm-4
+
+-----------------iowatcher
+
+http://masoncoding.com/iowatcher/
+
+iowatcher -t dm-5.bin -o dm-5.svg
+
+iowatcher -t dm-5.bin -t dm-6.bin -l dm-5 -l dm-6 -o dm.svg
+
+----------------ioprof
+https://github.com/intel/ioprof
+
+./ioprof.pl -m trace -d /dev/dm-4 -r 60
+
+./ioprof.pl -m trace -d /dev/dm-5 -r 60
+
+./ioprof.pl -m trace -d /dev/dm-6 -r 60
+
+./ioprof.pl -m post -t dm-4.tar -p
+
+./ioprof.pl -m post -t dm-5.tar -p
+
+./ioprof.pl -m post -t dm-6.tar -p
+
+--------------seekwatcher
+
+https://github.com/trofi/seekwatcher
+
+pip3 install numpy
+
+pip3 install Cython
+
+yum -y install libjpeg-turbo-devel
+
+yum -y install python3-devel
+
+pip3 install Pillow
+
+pip3 install matplotlib
+
+ln -s /usr/bin/python3.6 /usr/bin/python
+
+python setup.py install 
+
+blktrace -d /dev/dm-4 /dev/dm-5 /dev/dm-6 -w 10
+
+seekwatcher -t dm-4 -o dm-4.png
+
+seekwatcher -t dm-5 -o dm-5.png
+
+seekwatcher -t dm-6 -o dm-6.png
+
+seekwatcher -t dm-4 -t dm-5 -t dm-6 -l dm-4 -l dm-5 -l dm-6 -o dm-456.png
+
